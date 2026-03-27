@@ -1,0 +1,14 @@
+{
+  "phase": 7,
+  "phase_name": "風險管理",
+  "outputs": [
+    {"file": "07-risk/RISK_ASSESSMENT.md", "type": "document", "description": "風險評估"},
+    {"file": "07-risk/RISK_REGISTER.md", "type": "document", "description": "風險登錄"},
+    {"file": "07-risk/DEVELOPMENT_LOG.md", "type": "document", "description": "開發日誌 + QG"},
+    {"file": "07-risk/COMPLIANCE_MATRIX.md", "type": "document", "description": "合規矩陣 + QG"}
+  ],
+  "quality_gate": {
+    "doc_checker": {"passed": true},
+    "constitution": {"passed": false, "score": "31.8%"}
+  }
+}
