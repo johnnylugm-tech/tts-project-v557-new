@@ -1,0 +1,28 @@
+{
+  "phase": 4,
+  "phase_name": "測試",
+  "timestamp": "2026-03-27T08:25:00Z",
+  "outputs": [
+    {
+      "file": "04-testing/TEST_PLAN.md",
+      "type": "document",
+      "description": "測試計劃 (12 個測試案例)",
+      "size_bytes": 1557
+    },
+    {
+      "file": "04-testing/DEVELOPMENT_LOG.md",
+      "type": "document",
+      "description": "開發日誌 + QG 結果"
+    },
+    {
+      "file": "04-testing/COMPLIANCE_MATRIX.md",
+      "type": "document",
+      "description": "合規矩陣 + QG 結果"
+    }
+  ],
+  "quality_gate": {
+    "doc_checker": {"passed": true, "compliance_rate": "25%"},
+    "constitution": {"passed": false, "score": "64.3%", "note": "缺少 TEST_RESULTS"}
+  },
+  "next_phase_ready": true
+}
