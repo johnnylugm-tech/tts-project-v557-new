@@ -45,6 +45,42 @@
 1. **核心路徑**: TextProcessor → AsyncSynthesizer → Output
 2. **錯誤處理路徑**: ErrorHandler L1-L4 分類
 3. **CLI 路徑**: CLI → TTS Engine → Output
+4. **輸入驗證路徑**: validate_input → split_text → synthesize
+5. **非同步處理路徑**: synthesize_async → synthesize_batch → gather results
+6. **錯誤恢復路徑**: retry_3x → fallback → circuit_break
+
+### Critical Path 覆蓋
+
+| 路徑 | 測試案例 | 覆蓋 |
+|------|----------|------|
+| 核心路徑 | TC-001~TC-005, TC-012 | ✅ |
+| 錯誤處理路徑 | TC-006~TC-009 | ✅ |
+| CLI 路徑 | TC-010~TC-011 | ✅ |
+| 輸入驗證路徑 | TC-001~TC-003 | ✅ |
+| 非同步處理路徑 | TC-012 | ✅ |
+| 錯誤恢復路徑 | TC-006~TC-009 | ✅ |
+
+### Regression Tests
+
+| ID | 測試名稱 | 功能 |
+|----|----------|------|
+| RT-01 | test_validate_input_valid | 正常輸入驗證 |
+| RT-02 | test_validate_input_empty | 空輸入處理 |
+| RT-03 | test_validate_input_none | None 輸入處理 |
+| RT-04 | test_split_text_short | 短文字分段 |
+| RT-05 | test_split_text_long | 長文字分段 |
+| RT-06 | test_error_classify_l1 | L1 分類 |
+| RT-07 | test_error_classify_l2 | L2 分類 |
+| RT-08 | test_error_classify_l3 | L3 分類 |
+| RT-09 | test_error_classify_l4 | L4 分類 |
+
+### Smoke Tests
+
+| ID | 測試名稱 | 功能 |
+|----|----------|------|
+| ST-01 | test_init_default | 預設初始化 |
+| ST-02 | test_init_custom | 自訂初始化 |
+| ST-03 | test_synthesize_empty | 空文字合成 |
 
 ---
 
